@@ -7,6 +7,6 @@ uid=${BACKUP_USER:-1000}
 
 adduser -u ${uid} -g ${uid} -D ${uid}
 
-echo "${schedule} cd /data && tar czvf \"/backup/${prefix}\$(date +%Y%m%d%H%M).tar.gz\" --numeric-owner * && ls /backup/${prefix}* | head -n -${retains} | xargs -r rm" >> /var/spool/cron/crontabs/${uid}
+echo "${schedule} cd /data && tar czvf \"/backup/${prefix}\$(date +%Y%m%d%H%M).tar.gz\" --numeric-owner \$(ls -A) && ls /backup/${prefix}* | head -n -${retains} | xargs -r rm" >> /var/spool/cron/crontabs/${uid}
 
 exec crond -f -L /dev/stdout
