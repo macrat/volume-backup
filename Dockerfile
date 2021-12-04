@@ -1,8 +1,8 @@
-FROM gitea/gitea:latest
+FROM busybox:latest
 
 COPY ./entrypoint.sh /
 
-RUN rm /etc/crontabs/root && chmod 755 /entrypoint.sh && mkdir /backup && chown 1000:1000 /backup
+RUN mkdir -p /var/spool/cron/crontabs && chmod 755 /entrypoint.sh && mkdir /backup && chown 1000:1000 /backup
 
 VOLUME /backup
 
