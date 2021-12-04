@@ -6,7 +6,7 @@ A docker container image for scheduling backup of the volume.
 This container runs cron, and compress `/data/` directory to `/backup/` directory as a tar.gz file every day.
 
 ``` bash
-$ docker run -d -v your-data:/data -v $(pwd):/backup ghcr.io/macrat/volume-backup
+$ docker run -d -v your-data:/data:ro -v $(pwd):/backup ghcr.io/macrat/volume-backup
 ```
 
 In default, it runs backup on 2:42 every day, and retain 3 versions.
@@ -26,8 +26,8 @@ Note: You can not stop this container with Ctrl-C. Please use `docker stop` comm
 
 ``` bash
 # For example, retain backup files 7 days.
-$ docker run -d -v your-data:/data -v $(pwd):/backup -e BACKUP_RETAIN_NUM=7 ghcr.io/macrat/volume-backup
+$ docker run -d -v your-data:/data:ro -v $(pwd):/backup -e BACKUP_RETAIN_NUM=7 ghcr.io/macrat/volume-backup
 
 # Or, backup once a week, every sunday.
-$ docker run -d -v your-data:/data -v $(pwd):/backup -e BACKUP_SCHEDULE='0 0 * * 0' ghcr.io/macrat/volume-backup
+$ docker run -d -v your-data:/data:ro -v $(pwd):/backup -e BACKUP_SCHEDULE='0 0 * * 0' ghcr.io/macrat/volume-backup
 ```
