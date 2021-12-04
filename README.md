@@ -16,6 +16,8 @@ You can customize this behavior via environment variables.
 
 Please see also [Backup and Restore](https://docs.gitea.io/en-us/backup-and-restore/) section of the official documentation.
 
+Note: You can not stop this container with Ctrl-C. Please use `docker stop` command.
+
 
 ## Options
 
