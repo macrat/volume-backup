@@ -24,7 +24,7 @@ Please see also [Backup and Restore](https://docs.gitea.io/en-us/backup-and-rest
 | BACKUP_SCHEDULE      | `42 2 * * *`    | Schedule in crontab spec.      |
 | BACKUP_PREFIX        | `gitea-backup-` | Prefix string of backup file.  |
 | BACKUP_RETAIN_NUM    | `3`             | Number of retain backup files. |
-| BACKUP_USER          | `1000`          | Username or uid of gitea.      |
+| BACKUP_USER          | `git`           | Username to execute backup.    |
 
 ``` bash
 # For example, retain backup files 7 days.
