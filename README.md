@@ -24,6 +24,7 @@ Note: You can not stop this container with Ctrl-C. Please use `docker stop` comm
 | BACKUP_PREFIX        | `backup-`    | Prefix string of backup file.                                                       |
 | BACKUP_RETAIN_NUM    | `3`          | Number of retain backup versions. 0 or negative value means don't remove old files. |
 | BACKUP_UID           | `1000`       | Backup file owner's UID.                                                            |
+| BACKUP_GID           | same as UID  | Backup file owner's GID.                                                            |
 
 ``` bash
 # For example, retain backup files 7 days.
