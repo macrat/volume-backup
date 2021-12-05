@@ -7,9 +7,9 @@ uid=${BACKUP_UID:-1000}
 gid=${BACKUP_GID:-$uid}
 
 
-backup_command="fname=\"/backup/${prefix}\$(date +%Y%m%d%H%M).tar.gz\" && cd /data && tar czf \${fname} \$(ls -A) && chown ${uid}:${gid} \${fname}"
+backup_command="fname=\"/backup/${prefix}\$(date +%Y%m%d%H%M).tar.gz\" && cd /data && tar czf \"\${fname}\" \$(ls -A) && chown \"${uid}:${gid}\" \"\${fname}\""
 
-clean_command="ls /backup/${prefix}* | head -n -${retains} | xargs -r rm"
+clean_command="ls \"/backup/${prefix}\"* | head -n \"-${retains}\" | xargs -r rm"
 if [ "${retains}" -le 0 ]; then
     clean_command=":"
 fi
