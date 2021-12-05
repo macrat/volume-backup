@@ -22,7 +22,7 @@ Note: You can not stop this container with Ctrl-C. Please use `docker stop` comm
 | BACKUP_SCHEDULE      | `42 2 * * *` | Schedule in crontab spec.         |
 | BACKUP_PREFIX        | `backup-`    | Prefix string of backup file.     |
 | BACKUP_RETAIN_NUM    | `3`          | Number of retain backup versions. |
-| BACKUP_USER          | `1000`       | UID to execute backup.            |
+| BACKUP_UID           | `1000`       | Backup file owner's UID.          |
 
 ``` bash
 # For example, retain backup files 7 days.
