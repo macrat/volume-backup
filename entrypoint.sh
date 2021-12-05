@@ -6,7 +6,7 @@ retains=${BACKUP_RETAIN_NUM:-3}
 uid=${BACKUP_UID:-1000}
 
 
-backup_command="fname=\"/backup/${prefix}\$(date +%Y%m%d%H%M).tar.gz\" && cd /data && tar czvf \"\$fname\" \$(ls -A) && chown ${uid}:${uid} \${fname}"
+backup_command="fname=\"/backup/${prefix}\$(date +%Y%m%d%H%M).tar.gz\" && cd /data && tar czf \"\$fname\" \$(ls -A) && chown ${uid}:${uid} \${fname}"
 
 clean_command="ls /backup/${prefix}* | head -n -${retains} | xargs -r rm"
 if [ "${retains}" -le 0 ]; then
@@ -14,7 +14,7 @@ if [ "${retains}" -le 0 ]; then
 fi
 
 
-echo "${schedule} ${backup_command} && ${clean_command}" >> /var/spool/cron/crontabs/root
+echo "${schedule} date ; ${backup_command} && ${clean_command}" >> /var/spool/cron/crontabs/root
 
 
 exec crond -f -L /dev/stdout
